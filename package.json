@@ -1,15 +1,15 @@
 {
-  "name": "backend-server",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "Jhon Marin",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.19.2"
-  }
+	"name": "backend-server",
+	"version": "1.0.0",
+	"description": "",
+	"main": "index.js",
+	"scripts": {
+		"start:dev": "nodemon index.js"
+	},
+	"keywords": [],
+	"author": "Jhon Marin",
+	"license": "ISC",
+	"dependencies": {
+		"express": "^4.19.2"
+	}
 }
