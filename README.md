@@ -6,7 +6,8 @@
 - Mongo Atlas
 - Node
   - Nodemon
-
+  - Mongoose 8.4
+  - dotEnv
 
 ## Iniciar proyecto 🚀
 
