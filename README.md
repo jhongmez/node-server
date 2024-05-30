@@ -1,13 +1,15 @@
 # Backend node-server
+Para realizar la instacion de cada una de las dependecias se deje ejecutar el comando `npm i` o `npm install`
 
 ## Herramientas utilizadas 🔧
 
-- MongoDB Compass
+- MongoDB Compass 
 - Mongo Atlas
 - Node
   - Nodemon
-  - Mongoose 8.4
+  - Mongoose
   - dotEnv
+  - CORS
 
 ## Iniciar proyecto 🚀
 
