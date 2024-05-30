@@ -1,7 +1,13 @@
 const express = require('express');
+require('dotenv').config()
+
+const { connectionDB } = require('./database/config');
 
 // * Crear servidor de Express
 const app = express();
+
+// * Base de datos
+connectionDB();
 
 // * Rutas
 app.get( '/', (req, res) => { // * req: Info de los headers - res: Info que le mostraremos al usuario
@@ -14,6 +20,6 @@ app.get( '/', (req, res) => { // * req: Info de los headers - res: Info que le m
 })
 
 // * Escuchar o levantar el servidor 
-app.listen( 3000, () => {   // * Puerto
-    console.info('Servidor corriendo en el puerto 3000') // * Mensaje satisfactorio
+app.listen( process.env.PORT, () => {   // * Puerto
+    console.info(`SERVIDOR CORRIENDO CORRECTAMENTE EN EL PUERTO ${process.env.PORT}`) // * Mensaje satisfactorio
 })
