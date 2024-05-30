@@ -13,20 +13,17 @@ const app = express();
 // * Configuracion CORS
 app.use( cors() ); // * user es un middleware
 
+// * Lectura y parseo del Body
+app.use( express.json() );
+
 // * Base de datos
 connectionDB();
 
 // * Rutas
-app.get( '/', (req, res) => { // * req: Info de los headers - res: Info que le mostraremos al usuario
-    
-    res.json({
-        ok: true,
-        msg: 'Hola Mundo'
-    })
 
-})
+app.use( '/api/users', require('./routes/users-routes') );
 
 // * Escuchar o levantar el servidor 
 app.listen( process.env.PORT, () => {   // * Puerto
-    console.info(`SERVIDOR CORRIENDO CORRECTAMENTE EN EL PUERTO ${process.env.PORT}`) // * Mensaje satisfactorio
+	console.info(`SERVIDOR CORRIENDO CORRECTAMENTE EN EL PUERTO ${process.env.PORT}`) // * Mensaje satisfactorio
 })
