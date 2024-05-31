@@ -6,6 +6,8 @@ Para realizar la instacion de cada una de las dependecias se deje ejecutar el co
 - MongoDB Compass 
 - Mongo Atlas
 - Node
+  - Express
+  - Express Validator
   - Nodemon
   - Mongoose
   - dotEnv
