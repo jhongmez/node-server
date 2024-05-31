@@ -1,11 +1,13 @@
 const Users = require('../models/user');
 
-const getUsers = (req, res) => { // * req: Info de los headers - res: Info que le mostraremos al usuario
+const getUsers = async(req, res) => { // * req: Info de los headers - res: Info que le mostraremos al usuario
 	
+    const users = await Users.find();
+
 	res.json({
 		success: true,
         message: 'Datos obtenidos correctamente',
-		users: []
+        users
 	})
 
 }
