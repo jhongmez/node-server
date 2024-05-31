@@ -6,7 +6,7 @@ const { Router } = require('express');
 const { check } = require('express-validator')
 const { validateFields } = require('../middlewares/validate-fields');
 
-const { getUsers, createUser } = require('../controllers/users-controller');
+const { getUsers, createUser, updateUser } = require('../controllers/users-controller');
 
 const router = Router();
 
@@ -22,6 +22,8 @@ router.post( '/',
 	], 
 	createUser 
 );
+
+router.put( '/:id', updateUser )
 
 
 // * Exportacion del modulo router

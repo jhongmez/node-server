@@ -54,10 +54,24 @@ const createUser = async(req, res = response) => {
 
 	}
 
+}
+
+const updateUser = async(req, res = response) => {
+
+	try {
+		
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({
+			success: false,
+			message: 'ERROR al actualizar el usuario',
+		});
+	}
 
 }
 
 module.exports = {
 	getUsers, 
-	createUser
+	createUser,
+	updateUser
 }
