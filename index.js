@@ -6,7 +6,6 @@ const cors = require('cors')
 const { connectionDB } = require('./database/config');
 
 
-
 // * Crear servidor de Express
 const app = express();
 
@@ -20,7 +19,6 @@ app.use( express.json() );
 connectionDB();
 
 // * Rutas
-
 app.use( '/api/users', require('./routes/users-routes') );
 
 // * Escuchar o levantar el servidor 
