@@ -4,6 +4,8 @@
 
 const { Router } = require('express');
 const { check } = require('express-validator')
+const { validateFields } = require('../middlewares/validate-fields');
+
 const { getUsers, createUser } = require('../controllers/users-controller');
 
 const router = Router();
@@ -14,8 +16,9 @@ router.get( '/', getUsers );
 router.post( '/',
 	[
 		check('fullname', 'El nombre es obligatorio').not().isEmpty(),
-		check('email', 'El email es obligatorio').not().isEmpty(),
-		check('password', 'La contraseña es obligatoria').isEmail(),
+		check('password', 'El email es obligatorio').not().isEmpty(),
+		check('email', 'La contraseña es obligatoria').isEmail(),
+		validateFields
 	], 
 	createUser 
 );
