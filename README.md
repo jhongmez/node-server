@@ -12,6 +12,7 @@ Para realizar la instacion de cada una de las dependecias se deje ejecutar el co
   - Mongoose
   - dotEnv
   - CORS
+  - Bcryptjs
 
 ## Iniciar proyecto 🚀
 
