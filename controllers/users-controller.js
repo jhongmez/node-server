@@ -80,6 +80,15 @@ const updateUser = async(req, res = response) => {
 		if ( userDB.email === req.body.email ) {
 			delete fields.email;
 		} else {
+			
+			const existEmail = await Users.findOne({ email: req.body.email })
+
+			if ( existEmail ) {
+				res.status(400).json({
+					success: false,
+					message: 'ERROR el correo ya existe',
+				});
+			}
 
 		}
 
