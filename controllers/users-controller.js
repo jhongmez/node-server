@@ -57,9 +57,42 @@ const createUser = async(req, res = response) => {
 }
 
 const updateUser = async(req, res = response) => {
+	// TODO: Validar token y comprobar si es el usuario correcto
+	
+	const uid = req.params.id;
 
 	try {
+
+		const userDB = await Users.findById( uid )
+
+		if ( !userDB ) {
+			return res.status(400).json({
+				success: false,
+				message: 'El usuario no existe'
+			})
+		}
+
 		
+		const fields = req.body;
+		delete fields.password;
+		delete fields.google;
+		
+		if ( userDB.email === req.body.email ) {
+			delete fields.email;
+		} else {
+
+		}
+
+		// * New: Me muestra el campo tal cual se actualiza
+		const updateUser = await Users.findByIdAndUpdate( uid, fields, { new: true });
+
+
+		res.json({
+			success: true,
+			user: updateUser,
+			message: 'Usuario actualizado correctamente'
+		})
+
 	} catch (error) {
 		console.log(error);
 		res.status(500).json({
