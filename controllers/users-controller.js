@@ -71,26 +71,23 @@ const updateUser = async(req, res = response) => {
 				message: 'El usuario no existe'
 			})
 		}
-
 		
-		const fields = req.body;
-		delete fields.password;
-		delete fields.google;
+		const { password, google, email, ...fields} = req.body;
 		
-		if ( userDB.email === req.body.email ) {
-			delete fields.email;
-		} else {
+		if ( userDB.email !== email ) {
 			
-			const existEmail = await Users.findOne({ email: req.body.email })
+			const existEmail = await Users.findOne({ email })
 
 			if ( existEmail ) {
-				res.status(400).json({
+				return res.status(400).json({
 					success: false,
 					message: 'ERROR el correo ya existe',
 				});
 			}
 
 		}
+
+		fields.email = email;
 
 		// * New: Me muestra el campo tal cual se actualiza
 		const updateUser = await Users.findByIdAndUpdate( uid, fields, { new: true });
