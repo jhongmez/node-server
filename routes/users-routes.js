@@ -6,7 +6,7 @@ const { Router } = require('express');
 const { check } = require('express-validator')
 const { validateFields } = require('../middlewares/validate-fields');
 
-const { getUsers, createUser, updateUser } = require('../controllers/users-controller');
+const { getUsers, createUser, updateUser, deleteuser } = require('../controllers/users-controller');
 
 const router = Router();
 
@@ -30,7 +30,10 @@ router.put( '/:id',
 		check('role', 'El rol es obligatorio').not().isEmpty(),
 		validateFields
 	],  
-	updateUser )
+	updateUser 
+);
+
+router.delete( '/:id', deleteuser )
 
 
 // * Exportacion del modulo router

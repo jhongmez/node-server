@@ -109,8 +109,43 @@ const updateUser = async(req, res = response) => {
 
 }
 
+const deleteuser = async(req, res = response) => {
+
+	const uid = req.params.id;
+
+	try {
+
+		const userDB = await Users.findById( uid )
+
+		if ( !userDB ) {
+			return res.status(400).json({
+				success: false,
+				message: 'El usuario no existe'
+			})
+		}
+
+		await Users.findByIdAndDelete( uid );
+
+		res.json({
+			success: true,
+			user: uid,
+			message: 'Usuario deshabilitado correctamente'
+		})
+		
+	} catch (error) {
+		console.log(error);
+		res.status(500).json({
+			success: false,
+			message: 'ERROR al deshabilitar el usuario',
+		});
+	}
+
+
+}
+
 module.exports = {
 	getUsers, 
 	createUser,
-	updateUser
+	updateUser,
+	deleteuser
 }
