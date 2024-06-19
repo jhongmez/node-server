@@ -4,21 +4,23 @@
 
 const { Router } = require('express');
 const { check } = require('express-validator');
+
 const { validateFields } = require('../middlewares/validate-fields');
+const { validateJWT } = require('../middlewares/validate-jwt');
 
 const { getUsers, createUser, updateUser, deleteuser } = require('../controllers/users-controller');
 
 const router = Router();
 
 // * Estructura: Ruta, Middleware, Controlador
-router.get( '/', getUsers );
+router.get( '/', validateJWT, getUsers );
 
 router.post( '/',
 	[
 		check('fullname', 'El nombre es obligatorio').not().isEmpty(),
 		check('password', 'La contraseña es obligatorio').not().isEmpty(),
 		check('email', 'El email es obligatoria').isEmail(),
-		validateFields
+		validateFields,
 	], 
 	createUser 
 );
