@@ -13,6 +13,7 @@ Para realizar la instacion de cada una de las dependecias se deje ejecutar el co
   - dotEnv
   - CORS
   - Bcryptjs
+  - Json Web Token
 
 ## Iniciar proyecto 🚀
 
