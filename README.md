@@ -19,6 +19,10 @@ Para realizar la instacion de cada una de las dependecias se deje ejecutar el co
 
 Para inicializar el proyecto debemos de correr el comando `npm run start:dev` y este se ejecutará en modo desarrollador.
 
+## Para generar el JWT
+
+Debemos de logearnos para poder obtener nuestro token y asi hacer uso de los servicios creados
+
 ### Modelo Base de Datos 💾
 
 Para la base de datos creamos diferentes modelos:

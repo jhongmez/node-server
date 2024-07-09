@@ -27,6 +27,7 @@ router.post( '/',
 
 router.put( '/:id',
 	[
+		validateJWT,
 		check('fullname', 'El nombre es obligatorio').not().isEmpty(),
 		check('email', 'El email es obligatoria').isEmail(),
 		check('role', 'El rol es obligatorio').not().isEmpty(),
@@ -35,7 +36,10 @@ router.put( '/:id',
 	updateUser 
 );
 
-router.delete( '/:id', deleteuser )
+router.delete( '/:id', 
+	validateJWT,
+	deleteuser 
+)
 
 
 // * Exportacion del modulo router
