@@ -18,8 +18,8 @@ router.get( '/', validateJWT, getUsers );
 router.post( '/',
 	[
 		check('fullname', 'El nombre es obligatorio').not().isEmpty(),
-		check('password', 'La contraseña es obligatorio').not().isEmpty(),
-		check('email', 'El email es obligatoria').isEmail(),
+		check('password', 'La contraseña es obligatoria').not().isEmpty(),
+		check('email', 'El email es obligatorio').isEmail(),
 		validateFields,
 	], 
 	createUser 
@@ -29,7 +29,7 @@ router.put( '/:id',
 	[
 		validateJWT,
 		check('fullname', 'El nombre es obligatorio').not().isEmpty(),
-		check('email', 'El email es obligatoria').isEmail(),
+		check('email', 'El email es obligatorio').isEmail(),
 		check('role', 'El rol es obligatorio').not().isEmpty(),
 		validateFields
 	],  
