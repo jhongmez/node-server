@@ -30,3 +30,8 @@ Para la base de datos creamos diferentes modelos:
 - USUARIOS
 - MEDICOS
 - HOSPITALES
+
+### Pasos para obtener el token 🏃🏽‍♂️‍➡️
+
+1. Debemos de tener creado un usuario dentro de nuestro backend
+2. Realizar el login para poder acceder a las APIS creadas
