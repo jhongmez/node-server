@@ -13,7 +13,11 @@ const router = Router();
 router.get( '/', getHospitals );
 
 router.post( '/' , 
-    [],
+    [
+		validateJWT,
+		check('name', 'El nombre del HOSPITAL es obligatorio').not().isEmpty(),
+		validateFields
+	],
 	createHospital
 )
 
