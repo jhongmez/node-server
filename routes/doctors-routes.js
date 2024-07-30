@@ -12,7 +12,11 @@ const router = Router();
 router.get( '/', getDoctors );
 
 router.post( '/' , 
-    [],
+    [
+		validateJWT,
+		check('name', 'El nombre del DOCTOR es obligatorio').not().isEmpty(),
+		validateFields
+	],
 	createDoctor
 )
 

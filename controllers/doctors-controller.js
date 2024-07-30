@@ -1,12 +1,10 @@
 const { response } = require('express');
 const bcrypt = require('bcryptjs');
 
-const Doctors = require('../models/doctors');
+const Doctor = require('../models/doctors');
 const { generateJWT } = require('../helpers/jwt');
 
 const getDoctors = async( req, res = response ) => {
-    
-    const doctors = await Doctors.find();
 
     res.json({
 		success: true,
@@ -15,10 +13,31 @@ const getDoctors = async( req, res = response ) => {
 }
 
 const createDoctor = async( req, res = Response ) => {
-    res.json({
-		success: true,
-        message: 'Doctor creado correctamente',
-	})
+
+    const userId = req.uid;
+    const doctor = new Doctor({
+        user: userId,
+        ...req.body
+    })
+
+    try {
+
+        const doctorSave = await doctor.save();
+
+        res.json({
+		    success: true,
+            message: 'Doctor creado correctamente',
+            doctorSave
+	    })
+    } catch (error) {
+
+        console.log(error);
+		res.status(500).json({
+			success: false,
+			message: 'ERROR al crear el usuario',
+		});
+
+    }
 }
 
 const updateDoctor = async( req, res = Response ) => {
