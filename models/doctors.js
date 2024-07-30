@@ -12,6 +12,10 @@ const DoctorSchema = Schema({
     user: {
         type: Schema.Types.ObjectId,
         ref: 'USERS'
+    },
+    hospital: {
+        type: Schema.Types.ObjectId,
+        ref: 'HOSPITALS'
     }
 })
 
