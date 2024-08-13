@@ -5,10 +5,25 @@ const Hospital = require('../models/hospitals');
 const { generateJWT } = require('../helpers/jwt');
 
 const getHospitals = async( req, res = response ) => {
-    res.json({
-		success: true,
-		message: 'Datos obtenidos correctamente',
-	})
+
+    try {
+
+        const hospitals = await Hospital.find().populate('user', 'fullname');
+
+        res.json({
+		    success: true,
+		    message: 'Datos obtenidos correctamente',
+            hospitals
+	    })
+
+    } catch (error) {
+        console.log(error);
+		res.status(500).json({
+			success: false,
+			message: 'ERROR al obtener los hospitales',
+		});
+    }
+
 }
 
 const createHospital = async( req, res = Response ) => {

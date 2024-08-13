@@ -6,10 +6,24 @@ const { generateJWT } = require('../helpers/jwt');
 
 const getDoctors = async( req, res = response ) => {
 
-    res.json({
-		success: true,
-		message: 'Datos obtenidos correctamente',
-	})
+
+    try {
+
+        const doctors = await Doctor.find().populate('hospital', 'name');
+
+        res.json({
+		    success: true,
+		    message: 'Datos obtenidos correctamente',
+            doctors
+	    })
+        
+    } catch (error) {
+        console.log(error);
+		res.status(500).json({
+			success: false,
+			message: 'ERROR al obtener los doctores',
+		});
+    }
 }
 
 const createDoctor = async( req, res = Response ) => {
