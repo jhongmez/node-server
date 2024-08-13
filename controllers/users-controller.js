@@ -11,7 +11,7 @@ const getUsers = async(req, res) => { // * req: Info de los headers - res: Info 
 
 	
 	const [ users, total ] = await Promise.all([
-		Users.find().skip( longFrom ).limit( 5 ),
+		Users.find().skip( longFrom ).limit( longTo ),
 		Users.countDocuments()
 	]);
 
