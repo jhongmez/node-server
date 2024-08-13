@@ -9,7 +9,9 @@ const getDoctors = async( req, res = response ) => {
 
     try {
 
-        const doctors = await Doctor.find().populate('hospital', 'name');
+        const doctors = await Doctor.find()
+                                    .populate('hospital', 'name')
+                                    .populate('user', 'fullname');
 
         res.json({
 		    success: true,
