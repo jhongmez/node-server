@@ -14,6 +14,7 @@ Para realizar la instacion de cada una de las dependecias se deje ejecutar el co
   - CORS
   - Bcryptjs
   - Json Web Token
+  - Express File Upload
 
 ## Iniciar proyecto 🚀
 
