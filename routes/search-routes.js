@@ -3,11 +3,13 @@
 */
 const { Router } = require('express');
 const { validateJWT } = require('../middlewares/validate-jwt');
-const { getResults } = require('../controllers/search-controller')
+const { getResults, getCollection } = require('../controllers/search-controller')
 
 const router = Router();
 
 router.get( '/:busqueda', validateJWT, getResults );
+
+router.get( '/collection/:tabla/:busqueda', validateJWT, getCollection )
 
 
 // * Exportacion del modulo router
