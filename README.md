@@ -15,6 +15,7 @@ Para realizar la instacion de cada una de las dependecias se deje ejecutar el co
   - Bcryptjs
   - Json Web Token
   - Express File Upload
+  - UUID
 
 ## Iniciar proyecto 🚀
 
