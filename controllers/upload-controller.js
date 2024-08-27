@@ -1,5 +1,6 @@
 const { response } = require('express');
 const { v4: uuidv4 } = require('uuid');
+const { updateImage } = require('../helpers/update-image');
 
 const uploadFiles = ( req, res = response) => {
 
@@ -52,6 +53,9 @@ const uploadFiles = ( req, res = response) => {
 				err
 			});
 		}
+
+		// * Actualizar BD
+		updateImage( type, id, path, createNameFile );
 
 		res.json({
 			success: true,
