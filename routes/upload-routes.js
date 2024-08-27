@@ -10,7 +10,7 @@ const router = Router();
 
 router.use( expressFileUpload() );
 
-router.put('/:type/:id', uploadFiles)
+router.put('/:type/:id', validateJWT, uploadFiles)
 
 // * Exportacion del modulo router
 module.exports = router;
