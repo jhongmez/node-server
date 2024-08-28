@@ -1,8 +1,10 @@
 const { response } = require('express');
+const path = require('path');
+
 const { v4: uuidv4 } = require('uuid');
 const { updateImage } = require('../helpers/update-image');
 
-const uploadFiles = ( req, res = response) => {
+const uploadFiles = ( req, res = response ) => {
 
 	const type = req.params.type;
 	const id = req.params.id;
@@ -66,6 +68,15 @@ const uploadFiles = ( req, res = response) => {
 
 }
 
+const getFiles = ( req, res = response ) => {
+	const type = req.params.type;
+	const img = req.params.image;
+
+	const pathImage = path.join( __dirname, `../uploads/${type}/${img}`);
+	res.sendFile( pathImage )
+}
+
 module.exports = {
-    uploadFiles
+    uploadFiles,
+	getFiles
 }
