@@ -55,7 +55,7 @@ const uploadFiles = ( req, res = response) => {
 		}
 
 		// * Actualizar BD
-		updateImage( type, id, path, createNameFile );
+		updateImage( type, id, createNameFile );
 
 		res.json({
 			success: true,
